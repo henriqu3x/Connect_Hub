@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # ConnectHub - Sistema de Gestão de Condomínio
 
 ![ConnectHub Logo](assets/logo.png)
