@@ -1215,7 +1215,8 @@ class DashboardSindicoScreen(Screen):
         self.update_ui()
 
     def atualizar_badge_notificacoes(self):
-        if not self.user_data or 'id' not in self.user_data:
+        try:
+            if not self.user_data or 'id' not in self.user_data:
                 self.new_notifications_count = 0
                 return
 
@@ -1246,4 +1247,5 @@ class DashboardSindicoScreen(Screen):
             self.new_notifications_count = result[0]['total'] if result else 0
         except Exception as e:
             self.new_notifications_count = 0
+
 
