@@ -1,0 +1,240 @@
+<SindicoCadastroScreen>:
+    name: "sindico_cadastro"
+
+    FloatLayout:
+        canvas:
+            Color:
+                rgba: 1, 1, 1, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        BoxLayout:
+            size_hint: 0.3, 1
+            pos_hint: {"x": 0, "y": 0}
+
+            FloatLayout:
+                Image:
+                    source: app.resource_path("assets/Design-gradiente.png")
+                    allow_stretch: True
+                    keep_ratio: False
+                    size_hint: 1, 1
+                    pos_hint: {"x": 0, "y": 0}
+
+                Image:
+                    source: app.resource_path("assets/Logo-branca.png")
+                    size_hint: None, None
+                    size: "350dp", "350dp"
+                    pos_hint: {"top": 0.98, "center_x": 0.5}
+                
+
+                MDLabel:
+                    text: "Bem Vindo de Volta!"
+                    font_style: "H6"
+                    size_hint_y: None
+                    size_hint_x: None
+                    height: "200dp"
+                    width: '250dp'
+                    font_size: '40dp'
+                    halign: "left"
+                    pos_hint: {"top": 0.75, "center_x": 0.5}
+                    theme_text_color: "Custom"
+                    text_color: 1, 1, 1, 1
+
+                MDLabel:
+                    text: "Acesse sua conta agora mesmo."
+                    font_style: "H6"
+                    size_hint_y: None
+                    size_hint_x: None
+                    font_size: '16dp'
+                    width: '250dp'
+                    height: "250dp"
+                    halign: "left"
+                    pos_hint: {"top": 0.70, "center_x": 0.5}
+                    theme_text_color: "Custom"
+                    text_color: 1, 1, 1, 1
+
+                HoverMDCard:
+                    id: btn_entrar
+                    size_hint: None, None
+                    size: "200dp", "50dp"
+                    pos_hint: {"center_x": 0.5, "top": 0.45}
+                    radius: 40
+                    normal_color: 1, 1, 1, 0
+                    width: "250dp"
+                    height: "80dp"
+                    hover_color: 1, 1, 1, 0.2
+                    on_release: app.on_sindico()
+
+                    canvas.before:
+                        Color:
+                            rgba: 1, 1, 1, 1
+                        Line:
+                            rounded_rectangle: (self.x, self.y, self.width, self.height, 40)
+                            width: 1.2
+
+                    MDLabel:
+                        text: "Entrar"
+                        halign: "center"
+                        valign: "middle"
+                        theme_text_color: "Custom"
+                        text_color: 1, 1, 1, 1
+                        font_style: "H4"
+                        font_size: '24dp'
+
+                MDTextButton:
+                    text: "Esqueci minha senha"
+                    theme_text_color: "Custom"
+                    font_style: 'H6'
+                    font_size: '16dp'
+                    text_color: 1, 1, 1, 1
+                    size_hint: None, None
+                    height: '250dp'
+                    size: self.texture_size
+                    pos_hint: {"center_x": 0.5}
+                    y: 220
+                    on_release: app.esqueci_senha()
+
+        BoxLayout:
+            orientation: "vertical"
+            size_hint: 0.7, 1
+            pos_hint: {"x": 0.3, "y": -0.08}
+            padding: 30
+            spacing: 20
+
+            Widget:
+                size_hint_y: None
+                height: "0dp"
+
+            MDLabel:
+                text: "Crie sua conta"
+                font_style: "H6"
+                halign: "center"
+                font_size: '40dp'
+                size_hint_y: None
+                height: self.texture_size[1]
+                theme_text_color: 'Custom'
+                text_color: 0.5, 0.3, 0.8, 1
+
+            MDLabel:
+                text: "Preencha seus dados"
+                font_style: "H4"
+                halign: "center"
+                font_size: '20dp'
+                size_hint_y: None
+                height: self.texture_size[1]
+                theme_text_color: 'Custom'
+                text_color: 0.5, 0.3, 0.8, 1
+
+            Widget:
+                size_hint_y: 0.05
+
+            MDTextField:
+                id: nome
+                hint_text: "Nome"
+                mode: "rectangle"
+                size_hint_x: None
+                width: "630dp"
+                size_hint_y: None
+                height: "100dp"
+                pos_hint: {"center_x": 0.5}
+                theme_text_color: 'Custom'
+                text_color: 0.5, 0.3, 0.8, 1
+                text_color_normal: 0.5, 0.3, 0.8, 1
+                line_color_normal: 0.5, 0.3, 0.8, 1
+                line_color_focus: 0.4, 0, 0.6, 1
+                hint_text_color_normal: 0.5, 0.3, 0.8, 1
+                hint_text_color_focus: 0.5, 0.3, 0.8, 1
+                hint_text_color: 0.5, 0.3, 0.8, 1
+                helper_text: ""
+                foreground_color: 0.5, 0.3, 0.8, 1
+
+            MDTextField:
+                id: email
+                hint_text: "E-mail"
+                mode: "rectangle"
+                size_hint_x: None
+                width: "630dp"
+                size_hint_y: None
+                height: "100dp"
+                pos_hint: {"center_x": 0.5}
+                theme_text_color: 'Custom'
+                text_color: 0.5, 0.3, 0.8, 1
+                text_color_normal: 0.5, 0.3, 0.8, 1
+                line_color_normal: 0.5, 0.3, 0.8, 1
+                line_color_focus: 0.4, 0, 0.6, 1
+                hint_text_color_normal: 0.5, 0.3, 0.8, 1
+                hint_text_color_focus: 0.5, 0.3, 0.8, 1
+                hint_text_color: 0.5, 0.3, 0.8, 1
+                helper_text: ""
+                foreground_color: 0.5, 0.3, 0.8, 1
+
+            RelativeLayout:
+                size_hint_x: None
+                width: "630dp"
+                size_hint_y: None
+                height: "60dp"
+                pos_hint: {"center_x": 0.5}
+
+                MDTextField:
+                    id: senha
+                    hint_text: "Senha"
+                    password: root.senha_oculta
+                    mode: "rectangle"
+                    size_hint: 1, 1
+                    pos_hint: {"center_x": 0.5}
+                    theme_text_color: 'Custom'
+                    text_color: 0.5, 0.3, 0.8, 1
+                    text_color_normal: 0.5, 0.3, 0.8, 1
+                    line_color_normal: 0.5, 0.3, 0.8, 1
+                    line_color_focus: 0.4, 0, 0.6, 1
+                    hint_text_color_normal: 0.5, 0.3, 0.8, 1
+                    hint_text_color_focus: 0.5, 0.3, 0.8, 1
+
+
+                MDIconButton:
+                    icon: "eye-off" if root.senha_oculta else "eye"
+                    pos_hint: {"center_y": 0.42}
+                    size_hint: None, None
+                    size: "36dp", "36dp"
+                    x: self.parent.width - self.width - dp(12)
+                    on_release: root.toggle_visibilidade_senha()
+                    icon_size: "22sp"
+                    theme_text_color: "Custom"
+                    text_color: 0.5, 0.3, 0.8, 1
+
+            BoxLayout:
+                size_hint_x: None
+                width: self.minimum_width
+                pos_hint: {"center_x": 0.5}
+                spacing: 40
+                size_hint_y: None
+
+                HoverMDCard:
+                    id: btn_cadastrar
+                    size_hint: None, None
+                    width: "350dp"
+                    height: "50dp"
+                    radius: 14
+                    normal_color: 0, 0, 0, 0
+                    hover_color: 0.6, 0.4, 0.9, 0.2
+                    elevation: 0
+                    on_release : root.verificar_campos()
+
+                    canvas.before:
+                        Color:
+                            rgba: 0.5, 0.3, 0.8, 1
+                        Line:
+                            rounded_rectangle: (self.x, self.y, self.width, self.height, 14)
+                            width: 1.1
+
+                    MDLabel:
+                        text: "Cadastrar"
+                        halign: "center"
+                        valign: "middle"
+                        theme_text_color: "Custom"
+                        text_color: 0.5, 0.3, 0.8, 1
+                        font_style: "H6"
+
+            Widget:
+                size_hint_y: 0.15

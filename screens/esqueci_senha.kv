@@ -1,0 +1,153 @@
+<EsqueciMinhaSenhaScreeen>:
+    name: "esqueci_senha"
+    
+    FloatLayout:
+        canvas:
+            Color:
+                rgba: 1, 1, 1, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        BoxLayout:
+            size_hint: 0.3, 1
+            pos_hint: {"x": 0, "y": 0}
+
+            FloatLayout:
+                Image:
+                    source: app.resource_path("assets/Design-gradiente.png")
+                    allow_stretch: True
+                    keep_ratio: False
+                    size_hint: 1, 1
+                    pos_hint: {"x": 0, "y": 0}
+
+
+                FloatLayout:
+                    MDIconButton:
+                        icon: "arrow-left"
+                        user_font_size: "32sp"
+                        pos_hint: {"x": 0.04, "top": 0.98}
+                        theme_text_color: "Custom"
+                        text_color: 1, 1, 1, 1
+                        on_release: app.root.current = app.previous_screen
+
+                MDLabel:
+                    text: "Tranquilo,"
+                    font_style: "H6"
+                    size_hint_y: None
+                    height: "150dp"
+                    font_size: '40dp'
+                    halign: "center"
+                    pos_hint: {"top": 0.62, "center_x": 0.49}
+                    theme_text_color: "Custom"
+                    text_color: 1, 1, 1, 1
+
+                MDLabel:
+                    text: "Vamos te ajudar, Informe os dados necessários para recuperar sua senha."
+                    font_style: "H6"
+                    size_hint_y: None
+                    font_size: '16dp'
+                    size_hint_x: None
+                    width: '200dp'
+                    height: "250dp"
+                    halign: "left"
+                    pos_hint: {"top": 0.60, "center_x": 0.52}
+                    theme_text_color: "Custom"
+                    text_color: 1, 1, 1, 1
+
+        BoxLayout:
+            orientation: "vertical"
+            size_hint: 0.7, 1
+            pos_hint: {"x": 0.3, "y": 0}
+            padding: 30
+            spacing: 20
+
+            Widget: 
+                size_hint_y: None
+                height: "0dp"
+
+            MDLabel:
+                text: "Esqueci a senha"
+                font_style: "H6"
+                halign: "center"
+                font_size: '40dp'
+                size_hint_y: None
+                height: self.texture_size[1]
+                theme_text_color: 'Custom'
+                text_color: 0.5, 0.3, 0.8, 1
+
+            MDLabel:
+                text: "Digite seu email e enviaremos um  codigo para você recuperar sua conta."
+                font_style: "H4"
+                halign: "center"
+                font_size: '20dp'
+                size_hint_y: None
+                height: self.texture_size[1]
+                theme_text_color: 'Custom'
+                text_color: 0.5, 0.3, 0.8, 1
+            
+            Widget:  
+                size_hint_y: None
+                height: "120dp"
+
+            MDTextField:
+                id: email_input
+                hint_text: "E-mail"
+                mode: "rectangle"
+                size_hint_x: None
+                width: "630dp"
+                size_hint_y: None
+                height: "100dp"
+                pos_hint: {"center_x": 0.5} 
+                theme_text_color: 'Custom'
+                text_color: 0.5, 0.3, 0.8, 1                   
+                text_color_normal: 0.5, 0.3, 0.8, 1
+                line_color_normal: 0.5, 0.3, 0.8, 1       
+                line_color_focus: 0.4, 0, 0.6, 1       
+                hint_text_color_normal: 0.5, 0.3, 0.8, 1   
+                hint_text_color_focus: 0.5, 0.3, 0.8, 1     
+                hint_text_color: 0.5, 0.3, 0.8, 1         
+                helper_text: ""
+                foreground_color: 0.5, 0.3, 0.8, 1          
+
+            BoxLayout:
+                size_hint_x: None    
+                width: self.minimum_width 
+                pos_hint: {"center_x": 0.5}
+                spacing: 40
+                size_hint_y: None
+
+                HoverMDCard:
+                    id: btn_recuperar
+                    size_hint: None, None
+                    width: "350dp"
+                    height: "50dp"
+                    radius: 14
+                    normal_color: 0, 0, 0, 0         
+                    hover_color: 0.6, 0.4, 0.9, 0.2  
+                    elevation: 0
+                    on_release: app.enviar_codigo_recuperacao()
+
+                    canvas.before:
+                        Color:
+                            rgba: 0.5, 0.3, 0.8, 1    
+                        Line:
+                            rounded_rectangle: (self.x, self.y, self.width, self.height, 14)
+                            width: 1.1
+
+                    MDLabel:
+                        text: "Recuperar senha"
+                        halign: "center"
+                        valign: "middle"
+                        theme_text_color: "Custom"
+                        text_color: 0.5, 0.3, 0.8, 1
+                        font_style: "H6"
+
+                
+
+            Widget: 
+                size_hint_y: None
+                height: "250dp" 
+
+
+

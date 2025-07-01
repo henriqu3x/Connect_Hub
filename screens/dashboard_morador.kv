@@ -1,0 +1,906 @@
+<MyPerfilModal>:
+    size_hint: 1, 1
+    background_color: 1, 1, 1, 0
+    background: ""
+
+    MDBoxLayout:
+        orientation: "vertical"
+        padding: dp(30)
+        spacing: dp(20)
+        md_bg_color: 1, 1, 1, 1
+        radius: [0, 0, 0, 0]
+
+        MDBoxLayout:
+            size_hint_y: None
+            height: dp(180)
+            padding: dp(10)
+            spacing: dp(10)
+            pos_hint: {"center_x": 0.5}
+            orientation: "vertical"
+            md_bg_color: 0.9, 0.9, 1, 1
+            radius: [20]
+
+            FitImage:
+                source: app.resource_path("assets/perfil.png")
+                size_hint: None, None
+                size: dp(100), dp(100)
+                pos_hint: {"center_x": 0.5}
+                radius: [50]
+
+            MDLabel:
+                id: nome_usuario
+                text: "Nome do Usuário"
+                font_style: "H5"
+                halign: "center"
+                theme_text_color: "Custom"
+                text_color: 0.4, 0.2, 0.8, 1
+
+        MDCard:
+            padding: dp(20)
+            spacing: dp(10)
+            orientation: "vertical"
+            radius: [15]
+            md_bg_color: 0.96, 0.96, 0.96, 1
+            size_hint_y: None
+            height: dp(220)
+
+            MDLabel:
+                text: "Informações do Perfil"
+                font_style: "Subtitle1"
+                text_color: 0.4, 0.2, 0.8, 1
+                theme_text_color: "Custom"
+                halign: "left"
+
+            MDSeparator:
+
+            MDLabel:
+                id: email_usuario
+                text: "E-mail: exemplo@email.com"
+                halign: "left"
+                theme_text_color: "Secondary"
+
+            MDLabel:
+                id: tipo_usuario
+                text: "Tipo: Morador"
+                halign: "left"
+                theme_text_color: "Secondary"
+
+            MDLabel:
+                id: apartamento_usuario
+                text: "Apartamento: 203B"
+                halign: "left"
+                theme_text_color: "Secondary"
+                opacity: 1 
+
+        Widget:
+
+        MDRaisedButton:
+            text: "Fechar"
+            md_bg_color: 0.5, 0.3, 0.8, 1
+            text_color: 1, 1, 1, 1
+            pos_hint: {"center_x": 0.5}
+            on_release: root.dismiss()
+            size_hint_x: 0.5
+            elevation: 0
+
+
+<MyNotificacoesModal@ModalView>:
+    size_hint: 0.85, 0.85
+    background_color: 1, 1, 1, 0
+    background: ""
+
+    MDCard:
+        orientation: 'vertical'
+        padding: dp(20)
+        spacing: dp(20)
+        radius: [20]
+        size_hint: None, None
+        size: root.width * 1, root.height * 1
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        md_bg_color: 1, 1, 1, 0.98
+
+        MDLabel:
+            text: "Notificações"
+            font_style: "H5"
+            theme_text_color: "Custom"
+            text_color: 0.4, 0.2, 0.8, 1
+            halign: "left"
+            size_hint_y: None
+            height: self.texture_size[1]
+
+        ScrollView:
+            MDBoxLayout:
+                id: reservas_container
+                orientation: 'vertical'
+                spacing: dp(15)
+                padding: dp(10)
+                size_hint_y: None
+                height: self.minimum_height
+
+        MDRoundFlatButton:
+            text: "Fechar"
+            text_color: 0.5, 0.3, 0.8, 1
+            line_color: 0.5, 0.3, 0.8, 1
+            elevation: 0
+            pos_hint: {"center_x": 0.5}
+            on_release: root.dismiss()
+
+
+<MyComunicadosModal@ModalView>:
+    size_hint: 0.8, 0.8
+    background_color: 1, 1, 1, 0.95
+    background: ""
+
+    MDCard:
+        orientation: 'vertical'
+        padding: dp(20)
+        spacing: dp(15)
+        radius: [0]
+        size_hint: None, None
+        size: root.width * 1, root.height * 1
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        md_bg_color: 1, 1, 1, 0.95
+
+        MDLabel:
+            text: "Comunicados"
+            font_style: "H5"
+            theme_text_color: "Custom"
+            text_color: 0.4, 0.2, 0.8, 1
+            halign: "left"
+            size_hint_y: None
+            height: self.texture_size[1]
+
+        ScrollView:
+            MDBoxLayout:
+                id: comunicados_container
+                orientation: 'vertical'
+                spacing: dp(10)
+                padding: dp(10)
+                size_hint_y: None
+                height: self.minimum_height
+
+        MDRoundFlatButton:
+            text: "Fechar"
+            text_color: 0.5, 0.3, 0.8, 1
+            line_color: 0.5, 0.3, 0.8, 1
+            pos_hint: {"center_x": 0.5}
+            on_release: root.dismiss()
+
+<MyOcorrenciasModal@ModalView>:
+    size_hint: 0.8, 0.8
+    background_color: 1, 1, 1, 0
+    background: ""
+
+    MDCard:
+        orientation: 'vertical'
+        padding: dp(20)
+        spacing: dp(20)
+        radius: [0]
+        size_hint: None, None
+        size: root.width * 1, root.height * 1
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        md_bg_color: 1, 1, 1, 0.95
+
+        MDLabel:
+            text: "Minhas Ocorrências"
+            font_style: "H5"
+            theme_text_color: "Custom"
+            text_color: 0.5, 0.3, 0.8, 1
+            halign: "left"
+            size_hint_y: None
+            height: self.texture_size[1]
+
+        ScrollView:
+            MDBoxLayout:
+                id: ocorrencias_container
+                orientation: 'vertical'
+                spacing: dp(15)
+                padding: dp(10)
+                size_hint_y: None
+                height: self.minimum_height
+
+        MDRoundFlatButton:
+            text: "Fechar"
+            text_color: 0.5, 0.3, 0.8, 1
+            line_color: 0.5, 0.3, 0.8, 1
+            pos_hint: {"center_x": 0.5}
+            on_release: root.dismiss()
+
+            size_hint_x: 0.5
+            elevation: 0
+
+
+<MyReservasAreaModal@ModalView>:
+    id: modal_reserva_area
+    size_hint: 0.9, 0.9
+    background_color: 1, 1, 1, 0
+    background: ""
+
+    MDCard:
+        orientation: "vertical"
+        padding: dp(20)
+        spacing: dp(15)
+        radius: [20]
+        size_hint: None, None
+        size: root.width * 1, root.height * 1
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        md_bg_color: 1, 1, 1, 0.95
+
+        MDLabel:
+            text: "Reservar Área Comum"
+            halign: "left"
+            font_style: "H5"
+            theme_text_color: "Custom"
+            text_color: 0.5, 0.3, 0.8, 1
+            size_hint_y: None
+            height: self.texture_size[1]
+
+        ScrollView:
+            MDBoxLayout:
+                orientation: "vertical"
+                spacing: dp(10)
+                size_hint_y: None
+                height: self.minimum_height
+
+                MDTextField:
+                    id: nome_area
+                    hint_text: "Área Comum"
+                    helper_text: "Ex: Salão de Festas"
+                    helper_text_mode: "on_focus"
+
+                MDTextField:
+                    id: data_reserva
+                    hint_text: "Data da Reserva"
+                    readonly: True
+                    on_focus: if self.focus: root.abrir_calendario('data_reserva')
+
+                MDTextField:
+                    id: data_fim_reserva
+                    hint_text: "Data de Término"
+                    readonly: True
+                    on_focus: if self.focus: root.abrir_calendario('data_fim_reserva')
+
+                MDTextField:
+                    id: horario_reserva
+                    hint_text: "Horário"
+                    helper_text: "Ex: 18:00 às 22:00"
+                    helper_text_mode: "on_focus"
+
+                MDTextField:
+                    id: observacoes
+                    hint_text: "Observações (opcional)"
+                    multiline: True
+                    max_height: dp(100)
+
+        BoxLayout:
+            orientation: "horizontal"
+            spacing: dp(10)
+            size_hint_y: None
+            height: dp(50)
+
+            Widget:
+
+            MDRaisedButton:
+                text: "Cancelar"
+                md_bg_color: 1, 1, 1, 1
+                text_color: 0.5, 0.3, 0.8, 1
+                on_release: root.dismiss()
+                elevation: 0
+
+            MDRaisedButton:
+                text: "Reservar"
+                md_bg_color: 0.5, 0.3, 0.8, 1
+                text_color: 1, 1, 1, 1
+                on_release: app.enviar_reserva()
+                elevation: 0
+
+            Widget:
+
+
+<RegistrarOcorrenciaModal@ModalView>:
+    size_hint: 0.9, 0.9
+    background_color: 1, 1, 1, 0
+    background: ""
+
+    MDCard:
+        orientation: "vertical"
+        padding: dp(20)
+        spacing: dp(15)
+        radius: [20]
+        size_hint: None, None
+        size: root.width * 1, root.height * 1
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        md_bg_color: 1, 1, 1, 0.95
+
+        MDLabel:
+            text: "Registrar Nova Ocorrência"
+            halign: "left"
+            font_style: "H5"
+            theme_text_color: "Custom"
+            text_color: 0.5, 0.3, 0.8, 1
+            size_hint_y: None
+            height: self.texture_size[1]
+
+        ScrollView:
+            MDBoxLayout:
+                orientation: "vertical"
+                spacing: dp(10)
+                size_hint_y: None
+                height: self.minimum_height
+
+                MDTextField:
+                    id: titulo_ocorrencia
+                    hint_text: "Título da Ocorrência"
+                    helper_text: "Ex: Vazamento no apartamento"
+                    helper_text_mode: "on_focus"
+
+                MDTextField:
+                    id: descricao_ocorrencia
+                    hint_text: "Descrição"
+                    multiline: True
+                    max_height: dp(100)
+
+                MDTextField:
+                    id: data_ocorrencia
+                    hint_text: "Data da Ocorrência"
+                    readonly: True
+                    on_focus: if self.focus: root.abrir_calendario()
+
+                MDRaisedButton:
+                    text: "Anexar Foto (opcional)"
+                    icon: "camera-plus-outline"
+                    md_bg_color: 0.9, 0.9, 1, 1
+                    text_color: 0.4, 0.2, 0.8, 1
+                    elevation: 0
+                    on_release: root.abrir_seletor_foto()
+
+                FitImage:
+                    id: imagem_preview
+                    source: ""
+                    size_hint_y: None
+                    size_hint_x: None
+                    height: dp(0) efault to 0 height
+                    width: dp(300)
+                    radius: [10]
+                    opacity: 0   
+
+        BoxLayout:
+            orientation: "horizontal"
+            spacing: dp(10)
+            size_hint_y: None
+            height: dp(50)
+
+            Widget:
+
+            MDRaisedButton:
+                text: "Cancelar"
+                md_bg_color: 1, 1, 1, 1
+                text_color: 0.5, 0.3, 0.8, 1
+                on_release: root.dismiss()
+                elevation: 0
+
+            MDRaisedButton:
+                text: "Registrar"
+                md_bg_color: 0.5, 0.3, 0.8, 1
+                text_color: 1, 1, 1, 1
+                on_release: app.enviar_ocorrencia()
+                elevation: 0
+
+            Widget:
+
+<MyReservasModal@ModalView>:
+    size_hint: 0.8, 0.8
+    background_color: 1, 1, 1, 0
+    background: ""
+
+    MDCard:
+        orientation: 'vertical'
+        padding: dp(20)
+        spacing: dp(20)
+        radius: [0]
+        size_hint: None, None
+        size: root.width * 1, root.height * 1
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        md_bg_color: 1, 1, 1, 0.95
+
+        MDLabel:
+            text: "Suas Reservas"
+            halign: "left"
+            font_style: "H5"
+            theme_text_color: "Custom"
+            text_color: 0.5, 0.3, 0.8, 1
+            size_hint_y: None
+            height: self.texture_size[1]
+
+        ScrollView:
+            MDBoxLayout:
+                id: reservas_container
+                orientation: 'vertical'
+                spacing: dp(15)
+                padding: dp(10)
+                size_hint_y: None
+                height: self.minimum_height
+
+                MDCard:
+                    orientation: 'vertical'
+                    padding: [0,0,0,0]
+                    radius: [15]
+                    md_bg_color: 0.95, 0.95, 0.95, 0
+                    size_hint_y: None
+                    height: dp(140)
+
+                    MDLabel:
+                        text: 'Sem reservas no momento'
+                        halign: 'left'
+                        font_style: "Subtitle1"
+                        font_size: 26
+                        theme_text_color: "Custom"
+                        text_color: 0.5, 0.3, 0.8, 1
+
+
+        MDRoundFlatButton:
+            text: "Fechar"
+            text_color: 0.5, 0.3, 0.8, 1
+            line_color: 0.5, 0.3, 0.8, 1
+            pos_hint: {"center_x": 0.5}
+            on_release: root.dismiss()
+
+<DashboardMoradorScreen>:
+    name: 'morador_dashboard'
+
+    BoxLayout:
+        orientation: 'horizontal'
+
+        BoxLayout:
+            orientation: "vertical"
+            size_hint: 0.2, 1.05
+            padding: 0
+            spacing: 10
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 1 
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+                Color:
+                    rgba: 0.5, 0.3, 0.8, 1 
+                Line:
+                    width: 2 
+                    points: [self.right, self.y, self.right, self.top]
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None  
+                height: dp(200) 
+
+                Image:
+                    source: app.resource_path("assets/Logo-roxa-copia.png")
+                    size_hint_x: None
+                    width: self.height 
+                    allow_stretch: True
+                    keep_ratio: True
+
+                MDIconButton:
+                    icon: "logout"
+                    theme_text_color: "Custom"
+                    text_color: 0.5, 0.3, 0.8, 1
+                    pos_hint: {"center_y": 0.5}
+                    on_release: app.logout() 
+
+            ScrollView:
+                do_scroll_x: False
+
+                BoxLayout:
+                    orientation: "vertical"
+                    size_hint_y: None
+                    height: self.minimum_height
+                    spacing: 15
+                    padding: [23,0,0,0]
+
+                    BoxLayout:
+                        orientation: "horizontal"
+                        size_hint_y: None
+                        height: "30dp"
+                        spacing: 5
+
+                        Widget:
+                            size_hint_x: None
+                            width: "5dp"
+                            canvas.before:
+                                Color:
+                                    rgba: 0.5, 0.3, 0.8, 1
+                                Rectangle:
+                                    pos: self.pos
+                                    size: self.size
+
+                        MDLabel:
+                            text: "Dashboard"
+                            font_size: "14sp"
+                            theme_text_color: "Custom"
+                            text_color: 0.5, 0.3, 0.8, 1
+                            halign: "left"
+
+                    BoxLayout:
+                        orientation: "horizontal"
+                        size_hint_y: None
+                        height: "30dp"
+                        spacing: 5
+
+                        Widget:
+                            size_hint_x: None
+                            width: "5dp"
+                            canvas.before:
+                                Color:
+                                    rgba: 0.5, 0.3, 0.8, 0
+                                Rectangle:
+                                    pos: self.pos
+                                    size: self.size
+
+                        MDTextButton:
+                            text: "Visualizar minhas ocorrências"
+                            font_size: "14sp"
+                            theme_text_color: "Custom"
+                            text_color: 0.5, 0.3, 0.8, 1
+                            halign: "left"
+                            on_release: root.open_modal_minhas_ocorrencias()
+
+                    BoxLayout:
+                        orientation: "horizontal"
+                        size_hint_y: None
+                        height: "30dp"
+                        spacing: 5
+
+                        Widget:
+                            size_hint_x: None
+                            width: "5dp"
+                            canvas.before:
+                                Color:
+                                    rgba: 0.5, 0.3, 0.8, 0
+                                Rectangle:
+                                    pos: self.pos
+                                    size: self.size
+
+                        MDTextButton:
+                            text: "Registrar nova ocorrência"
+                            font_size: "14sp"
+                            theme_text_color: "Custom"
+                            text_color: 0.5, 0.3, 0.8, 1
+                            halign: "left"
+                            on_release: root.open_modal_registrar_ocorrencias()
+
+                    BoxLayout:
+                        orientation: "horizontal"
+                        size_hint_y: None
+                        height: "30dp"
+                        spacing: 5
+
+                        Widget:
+                            size_hint_x: None
+                            width: "5dp"
+                            canvas.before:
+                                Color:
+                                    rgba: 0.5, 0.3, 0.8, 0
+                                Rectangle:
+                                    pos: self.pos
+                                    size: self.size
+
+                        MDTextButton:
+                            text: "Reservar área comum"
+                            font_size: "14sp"
+                            theme_text_color: "Custom"
+                            text_color: 0.5, 0.3, 0.8, 1
+                            halign: "left"
+                            on_release: root.open_modal_area_comum()
+
+                    BoxLayout:
+                        orientation: "horizontal"
+                        size_hint_y: None
+                        height: "30dp"
+                        spacing: 5
+
+                        Widget:
+                            size_hint_x: None
+                            width: "5dp"
+                            canvas.before:
+                                Color:
+                                    rgba: 0.5, 0.3, 0.8, 0
+                                Rectangle:
+                                    pos: self.pos
+                                    size: self.size
+
+                        MDTextButton:
+                            text: "Visualizar minhas reservas"
+                            font_size: "14sp"
+                            theme_text_color: "Custom"
+                            text_color: 0.5, 0.3, 0.8, 1
+                            halign: "left"
+                            on_release: root.open_modal_suas_reservas()
+
+                    BoxLayout:
+                        orientation: "horizontal"
+                        size_hint_y: None
+                        height: "30dp"
+                        spacing: 5
+
+                        Widget:
+                            size_hint_x: None
+                            width: "5dp"
+                            canvas.before:
+                                Color:
+                                    rgba: 0.5, 0.3, 0.8, 0
+                                Rectangle:
+                                    pos: self.pos
+                                    size: self.size
+
+                        MDTextButton:
+                            text: "Visualizar comunicados"
+                            font_size: "14sp"
+                            theme_text_color: "Custom"
+                            text_color: 0.5, 0.3, 0.8, 1
+                            halign: "left"
+                            on_release: root.open_modal()
+
+        FloatLayout:
+            size_hint_x: 0.8
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            MDLabel:
+                text: "DASHBOARD"
+                font_style: "H5"
+                pos_hint: {"x": 0.05, "top": 0.95}
+                theme_text_color: "Custom"
+                text_color: 0.5, 0.3, 0.8, 1
+
+            FloatLayout:
+                size_hint: None, None
+                size: dp(48), dp(48)
+                pos_hint: {"right": 0.95, "top": 0.95}
+
+                MDIconButton:
+                    id: bell_icon
+                    icon: "bell-outline"
+                    theme_text_color: "Custom"
+                    text_color: 0.5, 0.3, 0.8, 1
+                    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                    on_release: root.open_modal_notificacoes()
+
+            MDCard:
+                id: badge_label
+                size_hint: None, None
+                size: dp(16), dp(16)
+                pos_hint: {"right": 0.948, "top": 0.948}
+                radius: [8, 8, 8, 8]
+                md_bg_color: 1, 0, 0, 1
+                elevation: 0
+                padding: 0
+                spacing: 0
+                opacity: 1 if root.new_notifications_count > 0 else 0
+
+                MDLabel:
+                    text: str(root.new_notifications_count) if root.new_notifications_count > 0 else ""
+                    font_style: "Caption"
+                    theme_text_color: "Custom"
+                    text_color: 1, 1, 1, 1
+                    halign: "center"
+                    valign: "middle"
+                    text_size: self.size
+
+            MDIconButton:
+                icon: "account-outline"
+                pos_hint: {"right": 0.9, "top": 0.95}
+                theme_text_color: "Custom"
+                text_color: 0.5, 0.3, 0.8, 1
+                on_release: root.open_modal_perfil()
+
+            BoxLayout:
+                orientation: "horizontal"
+                spacing: 20
+                size_hint: 0.9, 0.25
+                pos_hint: {"x": 0.05, "top": 0.8}
+
+                MDCard:
+                    orientation: "vertical"
+                    padding: 15
+                    radius: [15]
+                    md_bg_color: 0.7, 0.2, 1, 1
+
+                    MDLabel:
+                        text: "Comunicados Recentes"
+                        font_style: "H6"
+                        theme_text_color: "Custom"
+                        text_color: 1, 1, 1, 1
+
+                    MDLabel:
+                        id: comunicados_summary
+                        text: "Nenhum comunicado"
+                        font_size: "12sp"
+                        theme_text_color: "Custom"
+                        text_color: 1, 1, 1, 1
+
+                    MDRaisedButton:
+                        text: "Ver todos"
+                        elevation: 0
+                        md_bg_color: 1, 1, 1, 0
+                        text_color: 1, 1, 1, 1
+                        line_color: 1, 1, 1, 1   
+                        line_width: 1.5   
+                        pos_hint: {"center_x": 0.5}
+                        on_release: root.open_modal()
+
+                MDCard:
+                    orientation: "vertical"
+                    padding: 15
+                    radius: [15]
+                    md_bg_color: 1, 1, 1, 1
+
+                    canvas.before:
+                        Color:
+                            rgba: 0.5, 0.3, 0.8, 1
+                        Line:
+                            width: 2
+                            rounded_rectangle: (self.x, self.y, self.width, self.height, 15)
+
+                    MDLabel:
+                        text: "Suas Reservas"
+                        font_style: "H6"
+                        theme_text_color: "Custom"
+                        text_color: 0.5, 0.3, 0.8, 1
+
+                    MDLabel:
+                        text: "Visualize todas as suas reservas"
+                        font_size: "12sp"
+                        theme_text_color: "Custom"
+                        text_color: 0.5, 0.3, 0.8, 1
+
+                    MDRaisedButton:
+                        text: "Ver todas"
+                        elevation: 0
+                        md_bg_color: 0.5, 0.3, 0.8, 1
+                        text_color: 1, 1, 1, 1
+                        pos_hint: {"center_x": 0.5}
+                        on_release: root.open_modal_suas_reservas()
+
+                MDCard:
+                    orientation: "vertical"
+                    padding: 15
+                    radius: [15]
+                    md_bg_color: 1, 1, 1, 1
+
+                    canvas.before:
+                        Color:
+                            rgba: 0.5, 0.3, 0.8, 1  
+                        Line:
+                            width: 2  
+                            rounded_rectangle: (self.x, self.y, self.width, self.height, 15)
+
+                    MDLabel:
+                        text: "Perfil"
+                        font_style: "H6"
+                        theme_text_color: "Custom"
+                        text_color: 0.5, 0.3, 0.8, 1
+
+                    MDLabel:
+                        text: "Visualizar configurações da conta"
+                        font_size: "12sp"
+                        theme_text_color: "Custom"
+                        text_color: 0.5, 0.3, 0.8, 1
+
+                    MDIconButton:
+                        icon: "cog-outline"
+                        theme_text_color: "Custom"
+                        text_color: 0.5, 0.3, 0.8, 1
+                        pos_hint: {"center_x": 0.5}
+                        on_release: root.open_modal_perfil()
+
+            BoxLayout:
+                orientation: "horizontal"
+                spacing: 20
+                size_hint: 0.9, 0.25
+                pos_hint: {"x": 0.05, "top": 0.5}
+
+                MDCard:
+                    orientation: "vertical"
+                    padding: 15
+                    radius: [15]
+                    md_bg_color: 1, 1, 1, 1
+
+                    canvas.before:
+                        Color:
+                            rgba: 0.5, 0.3, 0.8, 1
+                        Line:
+                            width: 2
+                            rounded_rectangle: (self.x, self.y, self.width, self.height, 15)
+
+                    MDLabel:
+                        text: "Minhas Ocorrências"
+                        font_style: "H6"
+                        theme_text_color: "Custom"
+                        text_color: 0.5, 0.3, 0.8, 1
+
+                    MDLabel:
+                        id: ocorrencias_summary
+                        text: "Abertas: 0   \  Última: Nenhuma"
+                        font_size: "12sp"
+                        theme_text_color: "Custom"
+                        text_color: 0.5, 0.3, 0.8, 1
+
+                    MDRaisedButton:
+                        text: "Ver ocorrências"
+                        elevation: 0
+                        md_bg_color: 0.5, 0.3, 0.8, 1
+                        text_color: 1, 1, 1, 1
+                        pos_hint: {"center_x": 0.5}
+                        on_release: root.open_modal_minhas_ocorrencias()
+
+                MDCard:
+                    orientation: "vertical"
+                    padding: 15
+                    radius: [15]
+                    md_bg_color: 1, 1, 1, 1
+
+                    canvas.before:
+                        Color:
+                            rgba: 0.5, 0.3, 0.8, 1 
+                        Line:
+                            width: 2  
+                            rounded_rectangle: (self.x, self.y, self.width, self.height, 15)
+
+                    MDLabel:
+                        text: "Registrar nova ocorrência"
+                        font_style: "H6"
+                        theme_text_color: "Custom"
+                        text_color: 0.5, 0.3, 0.8, 1
+
+                    MDLabel:
+                        text: "Registre uma nova ocorrência"
+                        font_size: "12sp"
+                        theme_text_color: "Custom"
+                        text_color: 0.5, 0.3, 0.8, 1
+
+                    MDRaisedButton:
+                        text: "Registrar"
+                        elevation: 0
+                        md_bg_color: 0.5, 0.3, 0.8, 1
+                        text_color: 1, 1, 1, 1
+                        pos_hint: {"center_x": 0.5}
+                        on_release: root.open_modal_registrar_ocorrencias()
+
+                MDCard:
+                    orientation: "vertical"
+                    padding: 15
+                    spacing: 0
+                    radius: [15]
+                    md_bg_color: 1, 1, 1, 1
+
+                    canvas.before:
+                        Color:
+                            rgba: 0.5, 0.3, 0.8, 1
+                        Line:
+                            width: 2
+                            rounded_rectangle: (self.x, self.y, self.width, self.height, 15)
+
+                    MDLabel:
+                        text: "Reservar área comum"
+                        font_style: "H6"
+                        theme_text_color: "Custom"
+                        text_color: 0.5, 0.3, 0.8, 1
+
+                    MDLabel:
+                        text: "Faça uma reserva de uma área comum"
+                        font_size: "12sp"
+                        theme_text_color: "Custom"
+                        text_color: 0.5, 0.3, 0.8, 1
+
+
+                    MDRaisedButton:
+                        text: "Reservar"
+                        elevation: 0
+                        md_bg_color: 0.5, 0.3, 0.8, 1
+                        text_color: 1, 1, 1, 1
+                        pos_hint: {"center_x": 0.5}
+                        on_release: root.open_modal_area_comum()

@@ -1,0 +1,133 @@
+#:import Window kivy.core.window.Window
+#:import HoverMDCard screens.seletor_login_screen.HoverMDCard
+
+<MyRoundedLeft@Widget>:
+    canvas:
+        Color:
+            rgba: 0.9, 0.9, 0.9, 1
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [0, 40, 40, 0]
+
+<HoverCard>:
+    size_hint: 1, 1
+    radius: [12]
+    ripple_behavior: True
+    elevation: 0
+    padding: 0
+
+    MDLabel:
+        text: root.text
+        halign: "center"
+        valign: "middle"
+        theme_text_color: "Custom"
+        text_color: 1, 1, 1, 1
+        font_style: "H6"
+
+<SeletorLoginScreen>:
+    name: "seletor"
+
+    FloatLayout:
+        canvas:
+            Color:
+                rgba: 1, 1, 1, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        MyRoundedLeft:
+            size_hint: 0.5, 1
+            pos_hint: {"x": 0, "y": 0}
+
+        FloatLayout:
+            size_hint: 0.5, 1
+            pos_hint: {"x": 0, "y": 0}
+
+            Image:
+                source: app.resource_path("assets/Logo-roxa.png")
+                size_hint: 0.6, 0.6 
+                pos_hint: {"center_x": 0.5, "center_y": 0.85}
+                allow_stretch: True
+                keep_ratio: True
+
+            Image:
+                source: app.resource_path("assets/imagem-fundo-copia.png")
+                size_hint: 0.8, 0.8  
+                pos_hint: {"center_x": 0.5, "top": 0.87}
+                allow_stretch: True
+                keep_ratio: True
+
+        BoxLayout:
+            orientation: "vertical"
+            size_hint: 0.5, 1
+            pos_hint: {"x": 0.5, "y": 0}
+            padding: [40, 40, 40, 40]
+            spacing: 40
+
+            Widget:
+                size_hint_y: None
+                height: "40dp"
+
+            MDLabel:
+                text: "Entrar como:"
+                halign: "center"
+                font_style: "H5"
+                size_hint_y: None
+                height: self.texture_size[1]
+                font_size: '30dp'
+                theme_text_color: 'Custom'
+                text_color: 0.5, 0.3, 0.8, 1
+
+            FloatLayout:
+                size_hint: 1, 1
+
+                GridLayout:
+                    cols: 2
+                    spacing: 40
+                    size_hint: None, None
+                    row_force_default: True
+                    row_default_height: min(Window.height * 0.25, dp(200))
+                    col_force_default: True
+                    col_default_width: min(Window.height * 0.3, dp(200))
+                    size: self.minimum_size
+                    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+                    HoverMDCard:
+                        size_hint: None, None
+                        width: self.height 
+                        height: min(Window.height * 0.3, dp(200))  
+                        radius: 20
+                        normal_color: 0.5, 0.3, 0.8, 1
+                        hover_color: 0.6, 0.4, 0.9, 1
+                        on_release: app.on_sindico()
+                        elevation: 0
+
+                        MDLabel:
+                            text: "Sindico"
+                            halign: "center"
+                            valign: "middle"
+                            theme_text_color: "Custom"
+                            text_color: 1, 1, 1, 1
+                            font_style: "H6"
+
+                    HoverMDCard:
+                        size_hint: None, None
+                        width: self.height
+                        height: min(Window.height * 0.3, dp(200))
+                        radius: 20
+                        normal_color: 0.5, 0.3, 0.8, 1
+                        hover_color: 0.6, 0.4, 0.9, 1
+                        on_release: app.on_morador()
+                        elevation: 0
+
+                        MDLabel:
+                            text: "Morador"
+                            halign: "center"
+                            valign: "middle"
+                            theme_text_color: "Custom"
+                            text_color: 1, 1, 1, 1
+                            font_style: "H6"
+
+                Widget:
+                    size_hint_y: 2

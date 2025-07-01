@@ -1,0 +1,174 @@
+#:import HoverMDCard screens.seletor_login_screen.HoverMDCard
+#:import Window kivy.core.window.Window
+
+<SindicoLoginScreen>:
+    name: "sindico_login"
+
+    FloatLayout:
+        canvas:
+            Color:
+                rgba: 1, 1, 1, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        FloatLayout:
+            size_hint: 0.5, 1
+            pos_hint: {"x": 0, "y": 0}
+
+            MDIconButton:
+                icon: "arrow-left"
+                theme_text_color: 'Custom'
+                text_color: 0.5, 0.3, 0.8, 1
+                pos_hint: {"x": 0.05, "top": 0.98}
+                on_release: root.manager.current = "seletor"
+
+            BoxLayout:
+                orientation: "vertical"
+                size_hint: None, 0.6
+                width: dp(600)
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                padding: dp(20)
+                spacing: 0 
+
+                MDLabel:
+                    text: "Login"
+                    font_style: "H4"
+                    halign: "center"
+                    size_hint_y: None
+                    height: self.texture_size[1]
+                    theme_text_color: 'Custom'
+                    text_color: 0.5, 0.3, 0.8, 1
+
+                Widget:
+                    size_hint_y: 0.1
+
+                BoxLayout:  
+                    orientation: "vertical"
+                    size_hint_y: None
+                    height: self.minimum_height
+                    spacing: dp(20)  
+
+                    MDTextField:
+                        id: email
+                        hint_text: "E-mail"
+                        mode: "rectangle"
+                        size_hint_y: None
+                        height: "80dp"
+                        theme_text_color: 'Custom'
+                        text_color: 0.5, 0.3, 0.8, 1                     
+                        text_color_normal: 0.5, 0.3, 0.8, 1
+                        line_color_normal: 0.5, 0.3, 0.8, 1         
+                        line_color_focus: 0.4, 0, 0.6, 1        
+                        hint_text_color_normal: 0.5, 0.3, 0.8, 1    
+                        hint_text_color_focus: 0.5, 0.3, 0.8, 1     
+                        hint_text_color: 0.5, 0.3, 0.8, 1           
+                        helper_text: ""
+                        foreground_color: 0.5, 0.3, 0.8, 1           
+
+                    RelativeLayout:
+                        size_hint_y: None
+                        height: "80dp"
+
+                        MDTextField:
+                            id: senha
+                            hint_text: "Senha"
+                            password: True
+                            mode: "rectangle"
+                            pos_hint: {"x": 0}
+                            size_hint_x: 1
+                            theme_text_color: 'Custom'
+                            text_color: 0.5, 0.3, 0.8, 1
+                            text_color_normal: 0.5, 0.3, 0.8, 1
+                            line_color_normal: 0.5, 0.3, 0.8, 1
+                            line_color_focus: 0.4, 0, 0.6, 1
+                            hint_text_color_normal: 0.5, 0.3, 0.8, 1
+                            hint_text_color_focus: 0.5, 0.3, 0.8, 1
+
+                        MDIconButton:
+                            id: eye_button
+                            icon: "eye-off"
+                            theme_text_color: "Custom"
+                            text_color: 0.5, 0.3, 0.8, 1
+                            pos_hint: {"center_y": 0.325, "right": 0.99}
+                            on_release: root.toggle_password_visibility_manual()
+
+                Widget:
+                    size_hint_y: 0.035
+
+
+                BoxLayout: 
+                    size_hint_y: None
+                    height: "60dp"
+                    spacing: dp(20)
+
+                    HoverMDCard:
+                        size_hint: 1, 1
+                        radius: 14
+                        normal_color: 0.5, 0.3, 0.8, 1
+                        hover_color: 0.6, 0.4, 0.9, 1
+                        on_release: root.verificacao()
+                        elevation: 0
+
+                        MDLabel:
+                            text: "Login"
+                            halign: "center"
+                            valign: "middle"
+                            theme_text_color: "Custom"
+                            text_color: 1, 1, 1, 1
+                            font_style: "H6"
+
+                    HoverMDCard:
+                        size_hint: 1, 1
+                        radius: 14
+                        normal_color: 0.5, 0.3, 0.8, 1
+                        hover_color: 0.6, 0.4, 0.9, 1
+                        on_release: app.cadastro_sindico()
+                        elevation: 0
+
+                        MDLabel:
+                            text: "Cadastro"
+                            halign: "center"
+                            valign: "middle"
+                            theme_text_color: "Custom"
+                            text_color: 1, 1, 1, 1
+                            font_style: "H6"
+
+                Widget:
+                    size_hint_y: 0.08
+
+                MDTextButton: 
+                    size_hint_y: None
+                    height: "40dp"
+                    text: "Esqueci minha senha"
+                    theme_text_color: 'Custom'
+                    text_color: 0.5, 0.3, 0.8, 1
+                    halign: "center"
+                    pos_hint: {"center_x": 0.5}
+                    on_release: app.esqueci_senha()
+                    padding: dp(10), 0, 0, 0  
+
+        BoxLayout:
+            size_hint: 0.5, 1
+            pos_hint: {"x": 0.5, "y": 0}
+
+            FloatLayout:
+                Image:
+                    source: app.resource_path("assets/Design-gradiente.png")
+                    allow_stretch: True
+                    keep_ratio: False
+                    size_hint: 1, 1
+                    pos: self.parent.pos
+
+                FloatLayout:
+                    size_hint: 0.65, 0.65
+                    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+                    canvas.before:
+                        Color:
+                            rgba: 1, 1, 1, 1
+                        RoundedRectangle:
+                            pos: self.pos
+                            size: self.size
+                            radius: [30, 30, 30, 30]
+                            source: app.resource_path("assets/imagem-login.png")
