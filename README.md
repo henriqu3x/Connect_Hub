@@ -1,7 +1,5 @@
 # ConnectHub - Sistema de Gestão de Condomínio
 
-![ConnectHub Logo](assets/logo.png)
-
 O ConnectHub é um sistema completo de gestão de condomínios que facilita a comunicação entre síndicos e moradores, além de oferecer ferramentas para gerenciamento de ocorrências, reservas de áreas comuns, envio de comunicados e muito mais.
 
 ## 🚀 Funcionalidades
