@@ -68,38 +68,11 @@ O ConnectHub é um sistema completo de gestão de condomínios que facilita a co
    python main.py
    ```
 
-## 🏗️ Estrutura do Projeto
-
-```
-connecthub-condominio/
-├── db/
-│   ├── connection.py     # Conexão com o banco de dados
-│   ├── db_config.py      # Configurações do banco de dados
-│   ├── update_database.py # Script de atualização do banco
-│   └── update_schema.sql # Esquema do banco de dados
-├── screens/
-│   ├── dashboard_morador_screen.py  # Tela do morador
-│   ├── dashboard_sindico_screen.py  # Tela do síndico
-│   ├── morador_login_screen.py      # Login do morador
-│   ├── sindico_login_screen.py      # Login do síndico
-│   ├── sindico_cadastro_screen.py   # Cadastro de síndico
-│   ├── esqueci_minha_senha_screen.py# Recuperação de senha
-│   └── redefina_sua_senha_screen.py # Redefinição de senha
-├── utils/
-│   ├── exportador_pdf.py # Geração de relatórios em PDF
-│   └── file_manager.py   # Gerenciamento de arquivos
-├── assets/               # Recursos visuais
-├── main.py               # Ponto de entrada do aplicativo
-└── requirements.txt      # Dependências do projeto
-```
-
 ## 📝 Licença
 
 Este projeto está licenciado sob a licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ---
-
-Desenvolvido com ❤️ pela Equipe ConnectHub
 =======
 # Connect_Hub
 Sistema de gerenciamento de condominio
