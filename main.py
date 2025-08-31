@@ -228,13 +228,13 @@ class MyApp(MDApp):
         self.email_recuperacao = email
 
 
-        remetente = "sistema.connecthub@gmail.com"
-        senha = "wczn nyei bgkv tyux"  
+        remetente = "seu email"
+        senha = "sua senha de app"  
 
         destinatario = email
 
         mensagem = MIMEMultipart()
-        mensagem["From"] = "ConnectHub Condominio <sistema.connecthub@gmail.com>"
+        mensagem["From"] = "Seu Email"
         mensagem["To"] = destinatario
         mensagem["Subject"] = "Código de recuperação de senha"
 
